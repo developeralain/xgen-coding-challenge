@@ -27,9 +27,8 @@ for(const key in product_obj){
     templateKeyArray.push(templateKey);//contains only product {{key}} values that exist in current template
     keyArray.push(key);//contains only product key values that map to current template {{key}} values
     }
-
-}
-        
+}   
+ 
 //generates an array of modified htmlTemplate divs, one for each product, with product values substituted 
 //in for placeholder values
 function generateDivArray(){
