@@ -18,3 +18,4 @@
 * Create your own HTML template with the provided products
 * Show product sale prices if a product is on sale
 * Style the page to look pretty
+
