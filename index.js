@@ -8,6 +8,8 @@ window.products.forEach(function(dictionary) {
             
         }
 })
+
+console.log(new_dict_array);
 var mainContainer = document.getElementById("XgenElement");
 var product_obj = new_dict_array[0];
 let templateKeyArray = [];
@@ -28,7 +30,7 @@ for(const key in product_obj){
     keyArray.push(key);//contains only product key values that map to current template {{key}} values
     }
 }   
- 
+
 //generates an array of modified htmlTemplate divs, one for each product, with product values substituted 
 //in for placeholder values
 function generateDivArray(){
@@ -39,6 +41,15 @@ function generateDivArray(){
         
         for (j=0; j < keyArray.length; j++){
             rawHTMLDiv = rawHTMLDiv.replaceAll(templateKeyArray[j], product[keyArray[j]]);
+        }
+        //substitutes sale price in place of price if there is a sale
+        if (product['sale_price'] != 'None'){
+            salePrice = product['sale_price'];
+            console.log('sale price' + salePrice);
+            targetString = product['price'];
+            console.log('target string' + targetString);
+            rawHTMLDiv = rawHTMLDiv.replaceAll(targetString, salePrice);
+            console.log('rawHTMLDiv' + rawHTMLDiv);
         }
         rawArray[i] = rawHTMLDiv; 
     }
@@ -52,7 +63,11 @@ divArray = generateDivArray();
 //uses div array to populate HTML page 
 for (const index in divArray){
     innerDiv = divArray[index];
-
+    onSale = new_dict_array[index]['sale_price'] != "None";
+    // if (onSale){
+    //     salePrice = parseInt(new_dict_array[index]['sale_price'])
+    //     divArray[index].replaceAll('')
+    // }
     mainContainer.innerHTML += innerDiv;
 }
 
