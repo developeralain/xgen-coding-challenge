@@ -8,6 +8,7 @@ window.htmlTemplate = `
 </div>
 `
 
+
 window.products = [
   {
     "short_description": "Top 2",

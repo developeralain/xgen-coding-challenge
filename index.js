@@ -61,10 +61,6 @@ divArray = generateDivArray();
 for (const index in divArray){
     innerDiv = divArray[index];
     onSale = new_dict_array[index]['sale_price'] != "None";
-    // if (onSale){
-    //     salePrice = parseInt(new_dict_array[index]['sale_price'])
-    //     divArray[index].replaceAll('')
-    // }
     mainContainer.innerHTML += innerDiv;
 }
 
