@@ -45,11 +45,8 @@ function generateDivArray(){
         //substitutes sale price in place of price if there is a sale
         if (product['sale_price'] != 'None'){
             salePrice = product['sale_price'];
-            console.log('sale price' + salePrice);
             targetString = product['price'];
-            console.log('target string' + targetString);
             rawHTMLDiv = rawHTMLDiv.replaceAll(targetString, salePrice);
-            console.log('rawHTMLDiv' + rawHTMLDiv);
         }
         rawArray[i] = rawHTMLDiv; 
     }
